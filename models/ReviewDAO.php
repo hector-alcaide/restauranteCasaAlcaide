@@ -56,5 +56,23 @@ class ReviewDAO
         return $result;
     }
 
+    public static function getReviews()
+    {
+        $conn = dataBase::connect();
+        $stmt = $conn->prepare("SELECT valoracion, titulo, descripcion FROM valoraciones ORDER BY valoracion DESC");
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        $reviews = [];
+        while ($reviewDB = $result->fetch_array(MYSQLI_ASSOC)) {
+            $reviews[] = $reviewDB;
+        }
+
+        $conn->close();
+
+        return $reviews;
+    }
 
 }

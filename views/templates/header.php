@@ -33,20 +33,23 @@ $class_name = get_class($this);
                 </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto align-items-center text-center">
-                        <li class="nav-item">
+                        <li class="nav-item itemderecha">
                             <a class="nav-link <?= $class_name && $class_name == "homes" ? 'active' : '' ?> px-0" aria-current="page" href="<?= base_url ?>homes/index">INICIO</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item itemderecha">
                             <a class="nav-link <?= $class_name && $class_name == "menus" ? 'active' : '' ?> px-0" href="<?= base_url ?>menus/index">CARTA</a>
+                        </li>
+                        <li class="nav-item itemderecha item_select">
+                            <a class="nav-link <?= $class_name && $class_name == "orders" ? 'active' : '' ?> px-0" href="<?= base_url ?>orders/index">PEDIDOS</a>
                         </li>
                         <li class="nav-item" id="logo">
                             <img src="../assets/img/logoRestaurante.svg" alt="Casa Alcaide Logo">
                         </li>
                         <li class="nav-item item_select">
-                            <a class="nav-link <?= $class_name && $class_name == "orders" ? 'active' : '' ?> px-0" href="<?= base_url ?>orders/index">PEDIDOS</a>
-                        </li>
-                        <li class="nav-item item_select">
                             <a class="nav-link <?= $class_name && $class_name == "accounts" ? 'active' : '' ?> px-0" href="<?= base_url ?>accounts/index">CUENTA</a>
+                        </li>
+                        <li class="nav-item itemderecha">
+                            <a class="nav-link <?= $class_name && $class_name == "reviews" ? 'active' : '' ?> px-0" href="<?= base_url ?>reviews/index">VALORACIONES</a>
                         </li>
                         <?php
                         if (common_helper::is_admin()) { ?>

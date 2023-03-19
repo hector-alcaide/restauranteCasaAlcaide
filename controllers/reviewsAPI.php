@@ -45,4 +45,13 @@ class reviewsAPI
 
         echo json_encode($return);
     }
+
+    public function getReviews()
+    {
+        require_once("models/ReviewDAO.php");
+
+        $return = ReviewDAO::getReviews();
+
+        echo json_encode($return);
+    }
 }
