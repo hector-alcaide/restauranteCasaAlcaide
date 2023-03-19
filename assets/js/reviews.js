@@ -1,17 +1,28 @@
-const reviews = getReviews();
+getReviews().then(function (reviews) {
+    printReviews(reviews);
 
-reviews.then(data => console.log(data));
-reviews.then(data => printReviews(data));
+    //filtros
+    const reviewfilter = document.getElementById('select-review');
+
+    reviewfilter.addEventListener('change', () => {
+        const selected = reviewfilter.value;
+        if (selected === 'asc') {
+            printReviews(reviews, 'asc');
+        } else if (selected === 'desc') {
+            printReviews(reviews, 'desc');
+        }
+    });
+});
 
 function printReviews(data, order = '') {
     const section_reviews = document.getElementById('reviews_section');
 
     if (order == 'asc') {
         data.sort((a, b) => a.valoracion - b.valoracion);
-    } else if (order == 'asc') {
+    } else if (order == 'desc') {
         data.sort((a, b) => b.valoracion - a.valoracion);
     }
-
+    section_reviews.innerHTML = '';
     data.forEach(review => {
         const html = `
         <div class="bg-color3 mx-auto mt-5 review-bloque">
@@ -46,51 +57,3 @@ function getReviews() {
             return data;
         });
 }
-
-// form.addEventListener('submit', function (ev) {
-//     ev.preventDefault();
-
-//     const data = new FormData(form);
-
-//     const formtype = document.getElementById('formtype');
-
-//     let url;
-
-//     if (formtype == 'add') {
-//         url = 'http://restaurantecasaalcaide.com/reviewsAPI/addReview';
-//     } else if (formtype == 'edit') {
-//         url = 'http://restaurantecasaalcaide.com/reviewsAPI/editReview';
-
-//         const idValoracion = document.getElementById('idValoracion');
-//         data.append('idValoracion', idValoracion.value);
-//     }
-
-//     fetch(url, {
-//         method: 'post',
-//         body: data
-//     }).then((response) => response.text())
-//         .then(function (response) {
-//             console.log(response);
-//         });
-
-
-//     if (formtype == 'add') {
-
-//     }
-// });
-
-// function getValoracionFields(idValoracion) {
-//     const data = new FormData();
-//     data.append('idValoracion', idValoracion);
-
-//     return new Promise((resolve, reject) => {
-//         fetch('http://restaurantecasaalcaide.com/reviewsAPI/getReviewById', {
-//             method: 'post',
-//             body: data
-//         }).then((response) => response.json())
-//             .then(function (data) {
-//                 resolve(data);
-//             });
-//     });
-// }
-

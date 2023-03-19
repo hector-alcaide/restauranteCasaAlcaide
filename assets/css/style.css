@@ -859,28 +859,3 @@ select option {
 .review-bloque p {
     font-size: 16px;
 }
-
-.filter {
-    display: flex;
-    align-items: center;
-    position: fixed;
-    top: 50%;
-    left: 160px;
-    transform: translateY(-50%);
-}
-
-.filter label {
-    margin-right: 10px;
-}
-
-.filter select {
-    padding: 5px 20px;
-    border-radius: 20px;
-    border: none;
-    background-color: #f2f2f2;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    font-size: 16px;
-    appearance: none;
-    outline: none;
-    cursor: pointer;
-}
