@@ -7,6 +7,10 @@ class menus
         require_once("controllers/helpers/common_helper.php");
         require_once("models/ProductDAO.php");
 
+        $scripts_array = [
+            '<script src="../../assets/js/menus.js"></script>'
+        ];
+
         //carga vistas
         require_once('views/templates/header.php');
         require_once('views/includes/addProductModal.php');

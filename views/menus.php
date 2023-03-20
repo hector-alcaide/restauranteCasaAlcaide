@@ -1,6 +1,68 @@
 <div class="contenedor bg-image1">
   <h1>CARTA</h1>
   <section class="contentPage">
+    <section class="categorias_mostrar pb-4">
+      <div class="row bg-color2">
+        <div class="col-lg-12">
+          <p class="py-1 my-1">Categorías a mostrar</p>
+        </div>
+      </div>
+      <div class="row text-left">
+        <div class="col-lg-12 bg-color3">
+            <div class="row py-2">
+              <div class="col-lg-4">
+                <label for="ensaladas_input">
+                  Ensaladas
+                </label>
+                <input type="checkbox" id="ensaladas_input" checked>
+              </div>
+              <div class="col-lg-4">
+                <label for="carnes_input">
+                  Carnes
+                </label>
+                <input type="checkbox" id="carnes_input" checked>
+              </div>
+              <div class="col-lg-4">
+                <label for="pescados_input">
+                  Pescados
+                </label>
+                <input type="checkbox" id="pescados_input" checked>
+              </div>
+            </div>
+            <div class="row py-2">
+              <div class="col-lg-4">
+                <label for="cervezas_input">
+                  Cervezas
+                </label>
+                <input type="checkbox" id="cervezas_input" checked>
+              </div>
+              <div class="col-lg-4">
+                <label for="vinos_input">
+                  Vinos
+                </label>
+                <input type="checkbox" id="vinos_input" checked>
+              </div>
+              <div class="col-lg-4">
+                <label for="postres_input">
+                  Postres
+                </label>
+                <input type="checkbox" id="postres_input" checked>
+              </div>
+            </div>
+            <div class="row py-2">
+              <div class="col-lg-6">
+                <label for="todos_input">
+                  Seleccionar todas
+                </label>
+                <input type="checkbox" id="todos_input" checked>
+              </div>
+              <div class="col-lg-6">
+              </div>
+            </div>
+        </div>
+      </div>
+
+    </section>
     <section class="border-2 border-bottom px-4" id="ensaladas">
       <h2>ENSALADAS</h2>
       <div class="d-flex justify-content-around py-4">
