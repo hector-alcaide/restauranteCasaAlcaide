@@ -14,6 +14,8 @@ const vinos_input = document.getElementById('vinos_input');
 const postres_input = document.getElementById('postres_input');
 const todos_input = document.getElementById('todos_input');
 
+let numSelected = 6;
+
 ensaladas_input.addEventListener('change', () => {
     displaySection(ensaladas_section, ensaladas_input);
 });
@@ -46,7 +48,15 @@ function displaySection(section, input) {
     let status = input.checked == true ? 'block' : 'none';
     section.style.display = status;
 
-    todos_input.checked = false;
+    if (input.checked == false) {
+        numSelected = numSelected - 1;
+        todos_input.checked = false;
+    } else {
+        numSelected++;
+        if(numSelected == 6){
+            todos_input.checked = true;
+        }
+    }
 }
 
 function toggleDisplayAll(checked) {
@@ -65,5 +75,8 @@ function toggleDisplayAll(checked) {
     cervezas_input.checked = checked;
     vinos_input.checked = checked;
     postres_input.checked = checked;
+
+    numSelected = checked == true ? 6 : 0;
 }
+
 
