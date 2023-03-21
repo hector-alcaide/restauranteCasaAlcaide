@@ -19,6 +19,7 @@ $class_name = get_class($this);
     <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../assets/css/style.css" rel="stylesheet" type="text/css" media="screen">
     <link rel="stylesheet" href="../../assets/fontawesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
 </head>
 
 <body class="bg-color2">

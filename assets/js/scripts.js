@@ -75,13 +75,9 @@ if (addProductModal) {
 
 // //mostrar labels por encima de inputs en caso de que éstos esten rellenados
 const inputs = document.querySelectorAll(".input-text");
-const labels = document.querySelectorAll("label");
+const labels = document.querySelectorAll(".label");
 
-for (let i = 0; i < inputs.length; i++) {
-    if (inputs[i].value.trim() !== "") {
-        labels[i].classList.add("input-filled");
-    }
-}
+refreshLabels();
 
 //comprobar si estan rellenados o no al cambiar el valor el input
 inputs.forEach((input, key) => {
@@ -93,6 +89,16 @@ inputs.forEach((input, key) => {
         }
     });
 });
+
+function refreshLabels(){
+    for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].value.trim() !== "") {
+            labels[i].classList.add("input-filled");
+        }else{
+            labels[i].classList.remove("input-filled");
+        }
+    }
+}
 
 //comprobar si existe el item de backend en header
 const itembackend = document.getElementById('backend_item');

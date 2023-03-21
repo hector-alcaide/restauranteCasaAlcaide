@@ -3,29 +3,34 @@
     <div class="modal-content bg-color1">
       <div class="modal-header d-block">
         <div class="d-flex">
-          <h2 class="modal-title fs-5" id="nombreProducto"></h2>
+          <h2 class="modal-title fs-5" id="titulo"></h2>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Cerrar"></button>
         </div>
-
-        <h3 class="modal-title fs-6" id="definicionProducto"></h3>
       </div>
       <div class="modal-body">
         <form class="w-100 mx-auto contact-form row" id="form_review">
           <input type="hidden" id="formtype" name="formtype">
           <div class="form-field col-lg-6 ">
-            <input name="valoracion" id="valoracion" class="input-text" type="number" required>
-            <label class="label" for="valoracion">Valoración</label>
+            <select name="valoracion" id="valoracion" class="input-text" required>
+              <option selected disabled value=""></option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            <label class="label input-filled" for="valoracion">Valoración</label>
           </div>
           <div class="form-field col-lg-6 ">
             <input name="titulo" id="titulo" class="input-text" type="text" required>
-            <label class="label" for="titulo">Título</label>
+            <label class="label input-filled" for="titulo">Título</label>
           </div>
-          <div class="form-field col-lg-6">
-            <input name="descripcion" id="descripcion" class="input-text" type="text-area" required>
-            <label class="label" for="descripcion">Descripción</label>
+          <div class="form-field col-lg-12 textarea">
+            <label class="input-filled" for="descripcion">Descripción</label>
+            <textarea name="descripcion" id="descripcion" class="input-text" cols="20" rows="10"></textarea>
           </div>
           <div class="form-field col-lg-12 text-left">
-            <input class="button-1" type="submit" value="GUARDAR">
+            <input class="button-1" type="submit" value="GUARDAR" data-bs-dismiss="modal">
           </div>
         </form>
       </div>
