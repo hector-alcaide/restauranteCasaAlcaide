@@ -56,11 +56,12 @@ class ReviewDAO
         return $result;
     }
 
-    public static function getReviews()
+    public static function getReviews($idUsuario)
     {
         $conn = dataBase::connect();
-        $stmt = $conn->prepare("SELECT valoracion, titulo, descripcion FROM valoraciones ORDER BY valoracion DESC");
+        $stmt = $conn->prepare("SELECT valoracion, titulo, descripcion FROM valoraciones WHERE idUsuario = ? ORDER BY valoracion DESC");
 
+        $stmt->bind_param("i", $idUsuario);
         $stmt->execute();
 
         $result = $stmt->get_result();

@@ -1,50 +1,3 @@
-//mostrar reseñas de los pedidos
-/*
-    <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#deleteReview_<?= $key ?>" aria-expanded="false" aria-controls="deleteReview_<?= $key ?>">
-        <i class="fa-solid fa-trash"></i>
-    </button>
-*/
-
-// function setButtonsReview() {
-//     const review_cols = document.querySelectorAll('.reviews');
-
-//     review_cols.forEach(review_col => {
-//         review_col.innerHTML = '';
-
-//         const idValoracion = review_col.getAttribute('data-idvaloracion');
-
-//         if (idValoracion == 'null') {
-//             const idPedido = review_col.getAttribute('data-idpedido');
-
-//             const addbutton = document.createElement('button');
-
-//             addbutton.classList.add('btn');
-//             addbutton.setAttribute('type', 'button');
-//             addbutton.setAttribute('data-bs-toggle', 'modal');
-//             addbutton.setAttribute('data-bs-target', '#formreview_modal');
-//             addbutton.setAttribute('data-bs-idpedido', idPedido);
-//             addbutton.setAttribute('data-bs-formtype', 'add');
-//             addbutton.innerHTML = '<i class="fa-solid fa-plus"></i>';
-
-//             review_col.appendChild(addbutton);
-//         } else if (idValoracion != 'null') {
-//             const editbutton = document.createElement('button');
-
-//             editbutton.classList.add('btn');
-//             editbutton.setAttribute('type', 'button');
-//             editbutton.setAttribute('data-bs-toggle', 'modal');
-//             editbutton.setAttribute('data-bs-target', '#formreview_modal');
-//             editbutton.setAttribute('data-bs-formtype', 'edit');
-//             editbutton.setAttribute('data-idvaloracion', idValoracion);
-//             editbutton.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
-
-//             review_col.appendChild(editbutton);
-//         }
-//     });
-// }
-
-// setButtonsReview();
-
 //formulario enviar idval
 const form = document.getElementById('form_review');
 
@@ -60,16 +13,23 @@ modalReview.addEventListener('show.bs.modal', ev => {
 
     formtype_input.value = formtype;
 
-    const title = document.getElementById('titulo');
+    const title = document.getElementById('tituloModal');
 
     if (formtype == 'add') {
         setValueFields();
         const idPedido = button.getAttribute('data-bs-idpedido');
+        console.log(idPedido);
         form.innerHTML += `<input type="hidden" id="idPedido" name="idPedido" value="${idPedido}">`;
         title.innerHTML = 'Añadir valoración';
+        
     } else if (formtype == 'edit') {
         const idValoracion = button.getAttribute('data-idvaloracion');
-        form.innerHTML += `<input type="hidden" id="idValoracion" name="idValoracion" value="${idValoracion}">`;
+        const idValoracion_input = document.getElementById('idValoracion');
+        if(idValoracion_input){
+            idValoracion_input.value = idValoracion;
+        }else{
+            form.innerHTML += `<input type="hidden" id="idValoracion" name="idValoracion" value="${idValoracion}">`;
+        }
         getValoracionFields(idValoracion).then(data => { setValueFields(data), refreshLabels() });
         title.innerHTML = 'Editar valoración';
     }
@@ -103,7 +63,6 @@ form.addEventListener('submit', function (ev) {
     const formtype = document.getElementById('formtype');
 
     let url;
-    let message;
     if (formtype.value == 'add') {
         url = 'http://restaurantecasaalcaide.com/reviewsAPI/addReview';
     } else if (formtype.value == 'edit') {
@@ -207,6 +166,7 @@ function displayUserOrders() {
                     editbutton.setAttribute('data-bs-target', '#formreview_modal');
                     editbutton.setAttribute('data-bs-formtype', 'edit');
                     editbutton.setAttribute('data-idvaloracion', order.idValoracion);
+                    console.log(order.idValoracion);
                     editbutton.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
 
                     const removebutton = document.createElement('button');

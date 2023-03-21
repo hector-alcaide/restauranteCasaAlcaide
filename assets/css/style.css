@@ -895,3 +895,18 @@ select option {
 .textarea textarea{
     background-color: rgba(0, 0, 0, 0.3)!important;
 }
+.nota-val span{
+    font-family: montserrat-medium!important;
+    color: #F5F5F5!important;
+}
+
+.nota-val{
+    font-family: montserrat-regular!important;
+    color: #d6d6d67c!important;
+}
+
+#select-review{
+    font-family: montserrat-regular;
+    padding: 5px;
+    border: solid 2px #E0E0E0;
+}
