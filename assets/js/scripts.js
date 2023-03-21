@@ -94,8 +94,6 @@ function refreshLabels(){
     for (let i = 0; i < inputs.length; i++) {
         if (inputs[i].value.trim() !== "") {
             labels[i].classList.add("input-filled");
-        }else{
-            labels[i].classList.remove("input-filled");
         }
     }
 }

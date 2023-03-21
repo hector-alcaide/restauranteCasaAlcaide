@@ -30,8 +30,8 @@ function printReviews(data, order = '') {
             <div class="col-lg-4">
             <h3 class="text-left">${review.titulo}</h3>
             </div>
-            <div class="col-lg-2">
-            ${review.valoracion}
+            <div class="col-lg-2 ">
+            <p class="nota-val"><span class="nota">${review.valoracion}</span>/5</p>
             </div>
             <div class="col-lg-6">
             </div>

@@ -3,7 +3,7 @@
     <div class="modal-content bg-color1">
       <div class="modal-header d-block">
         <div class="d-flex">
-          <h2 class="modal-title fs-5" id="titulo"></h2>
+          <h2 class="modal-title fs-5" id="tituloModal"></h2>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Cerrar"></button>
         </div>
       </div>
@@ -19,7 +19,7 @@
               <option value="4">4</option>
               <option value="5">5</option>
             </select>
-            <label class="label input-filled" for="valoracion">Valoración</label>
+            <label class="label input-filled" for="valoracion">Nota</label>
           </div>
           <div class="form-field col-lg-6 ">
             <input name="titulo" id="titulo" class="input-text" type="text" required>
