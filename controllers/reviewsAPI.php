@@ -30,7 +30,7 @@ class reviewsAPI
 
         $response = [
             'status' => 'success',
-            'message' => 'Valoración añadida correctamente.',
+            'message' => 'Valoración editada correctamente.',
             'idValoracion' => $return,
         ];
 
@@ -53,5 +53,29 @@ class reviewsAPI
         $return = ReviewDAO::getReviews();
 
         echo json_encode($return);
+    }
+
+    public function getUserOrders()
+    {
+        require_once("models/OrderDAO.php");
+        session_start();
+
+        $orders = OrderDAO::getPedidosByUser($_SESSION['user']->getIdUsuario());
+
+        echo json_encode($orders);
+    }
+
+    public function removeReviewById()
+    {
+        require_once("models/ReviewDAO.php");
+
+        reviewDAO::removeReviewById($_POST['idValoracion']);
+
+        $response = [
+            'status' => 'success',
+            'message' => 'Valoración eliminada correctamente.'
+        ];
+
+        echo json_encode($response);
     }
 }

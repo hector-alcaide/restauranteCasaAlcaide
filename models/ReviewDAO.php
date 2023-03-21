@@ -26,7 +26,7 @@ class ReviewDAO
     public static function updateReview($valoracion, $titulo, $descripcion, $idvaloracion)
     {
         $conn = dataBase::connect();
-        $stmt = $conn->prepare("UPDATE FROM valoraciones set valoracion = ?, titulo = ?, descripcion = ? WHERE idValoracion = ?");
+        $stmt = $conn->prepare("UPDATE valoraciones set valoracion = ?, titulo = ?, descripcion = ? WHERE idValoracion = ?");
 
         //Adjunta las variables a la consulta
         $stmt->bind_param("sssi", $valoracion, $titulo, $descripcion, $idvaloracion);
@@ -73,6 +73,20 @@ class ReviewDAO
         $conn->close();
 
         return $reviews;
+    }
+
+    public static function removeReviewById($idvaloracion)
+    {
+        $conn = dataBase::connect();
+        $stmt = $conn->prepare("DELETE from valoraciones WHERE idValoracion = ?");
+
+        //Adjunta las variables a la consulta
+        $stmt->bind_param("i", $idvaloracion);
+
+        //Ejecuta la sentencia
+        $stmt->execute();
+
+        $conn->close();
     }
 
 }

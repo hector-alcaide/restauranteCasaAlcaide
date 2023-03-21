@@ -794,6 +794,11 @@ div.col-lg-6 p {
     transform: translateY(-24px);
 }
 
+.input-to-fill {
+    -webkit-transform: translateY(-24px);
+    transform: translateY(-24px);
+}
+
 /*backend*/
 
 .tabla-admin {
@@ -860,18 +865,33 @@ select option {
     font-size: 16px;
 }
 
-.categorias_mostrar{
+.categorias_mostrar {
     width: 350px;
     margin-left: 40px;
 }
 
-.categorias_mostrar p{
+.categorias_mostrar p {
     font-size: 18px;
     font-family: montserrat-medium;
 }
 
-.categorias_mostrar label{
+.categorias_mostrar label {
     font-family: montserrat-regular;
     font-size: 15px;
     color: #F5F5F5;
+}
+
+/*notie*/
+.notie-container {
+    box-shadow: none;
+}
+
+.textarea label{
+    color: #D6D6D6;
+    font-size: 18px;
+    font-family: montserrat-regular;
+}
+
+.textarea textarea{
+    background-color: rgba(0, 0, 0, 0.3)!important;
 }

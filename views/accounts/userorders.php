@@ -9,7 +9,7 @@
         <h2 class="py-3">PEDIDOS REALIZADOS</h2>
         <?php $test = $orders; ?>
         <div class="table-responsive tabla-admin mt-5 mb-0 mx-auto">
-            <table class="table table-secondary table-striped text-font2 text-left">
+        <table class="table table-secondary table-striped text-font2 text-left" id="userorders_table">
                 <thead>
                     <tr>
                         <th scope="col">Num Pedido</th>
@@ -20,33 +20,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($orders as $key => $order) {
-                        $key++; ?>
-                        <tr>
-                            <td scope="row"><?= $key ?></td>
-                            <td><?= $order['fechaAltaPedido'] ?></td>
-                            <td><?= $order['importeTotal'] ?></td>
-                            <td>
-                                <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target=".products_<?= $key ?>" aria-expanded="false" aria-controls="products_<?= $key ?>">
-                                    <i class="fa-solid fa-turn-down"></i>
-                                </button>
-                            </td>
-                            <td class="reviews" data-idvaloracion="<?= !empty($order['idValoracion']) ? $order['idValoracion'] : 'null' ?>" data-idpedido=<?= $order['idPedido']?> >                                
-                            </td>
-                        </tr>
-                        <tr class="collapse products_<?= $key ?>">
-                            <th scope="col">Nombre</th>
-                            <th scope="col" colspan="3">Descripción</th>
-                            <th scope="col">Precio</th>
-                        </tr>
-                        <?php foreach ($order['orderproducts'] as $product) { ?>
-                            <tr class="collapse products_<?= $key ?>">
-                                <td scope="row"><?= $product['nombre'] ?></td>
-                                <td colspan="3"><?= $product['definicion'] ?></td>
-                                <td><?= $product['precio'] ?></td>
-                            </tr>
-                        <?php } ?>
-                    <?php } ?>
                 </tbody>
             </table>
         </div>
